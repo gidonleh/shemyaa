@@ -1,7 +1,7 @@
 import React, { Fragment, Suspense, lazy } from "react";
 import { MuiThemeProvider, CssBaseline } from "@material-ui/core";
 import { StylesProvider, jssPreset, ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { HasRouter as Router, Route, Switch } from "react-router-dom";
 import { create } from "jss";
 import theme from "./theme";
 import GlobalStyles from "./GlobalStyles";
@@ -21,7 +21,7 @@ const LoggedOutComponent = lazy(() => import("./logged_out/components/Main"));
 function App() {
   return (
     <StylesProvider jss={jss}>
-    <BrowserRouter>
+    <Router>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
         <GlobalStyles />
@@ -37,7 +37,7 @@ function App() {
           </Switch>
         </Suspense>
       </MuiThemeProvider>
-    </BrowserRouter>
+    </Router>
     </StylesProvider>
   );
 }
